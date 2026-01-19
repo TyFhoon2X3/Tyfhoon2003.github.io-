@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>พอร์ตโฟลิโอ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #764ba2;
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 1rem 0;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-item h3 {
+            margin-top: 0;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #764ba2;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #764ba2;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 ตรวจสอบ</h1>
+        <p>นักพัฒนา | ผู้ออกแบบ | นักสร้างสรรค์</p>
+    </header>
+
+    <nav>
+        <a href="#about">เกี่ยวกับฉัน</a>
+        <a href="#skills">ทักษะ</a>
+        <a href="#projects">โครงการ</a>
+        <a href="#contact">ติดต่อ</a>
+    </nav>
+
+    <div class="container">
+        <!-- เกี่ยวกับฉัน -->
+        <section id="about" class="hero">
+            <h2>เกี่ยวกับฉัน</h2>
+            <p>ยินดีต้อนรับสู่พอร์ตโฟลิโอของฉัน! ฉันเป็นนักพัฒนาเว็บที่มีความหลงใหลในการสร้างประสบการณ์ผู้ใช้ที่ยอดเยี่ยม และแอปพลิเคชันที่มีประสิทธิภาพสูง</p>
+            <p>ด้วยประสบการณ์หลายปีในการพัฒนาซอฟต์แวร์ ฉันมีความสามารถในการแปลงแนวคิดเป็นโซลูชันดิจิทัลที่ทำให้เกิดความเป็นจริง</p>
+        </section>
+
+        <!-- ทักษะ -->
+        <section id="skills">
+            <h2>ทักษะของฉัน</h2>
+            <div class="skills">
+                <div class="skill-item">
+                    <h3>📱 พัฒนาเว็บ</h3>
+                    <p>HTML, CSS, JavaScript, React, Vue.js, TypeScript</p>
+                </div>
+                <div class="skill-item">
+                    <h3>🔧 Back-end</h3>
+                    <p>Node.js, Python, PHP, MongoDB, MySQL, PostgreSQL</p>
+                </div>
+                <div class="skill-item">
+                    <h3>🎨 ออกแบบ</h3>
+                    <p>UI/UX Design, Figma, Adobe XD, Responsive Design</p>
+                </div>
+                <div class="skill-item">
+                    <h3>🛠️ เครื่องมืออื่นๆ</h3>
+                    <p>Git, Docker, Linux, AWS, REST APIs, GraphQL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- โครงการ -->
+        <section id="projects">
+            <h2>โครงการของฉัน</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>🌐 เว็บไซต์อีคอมเมิร์ซ</h3>
+                    <p>แอปพลิเคชันอีคอมเมิร์ซแบบเต็มสแต็กพร้อมตะกร้าเก็บสินค้า การชำระเงิน และแดชบอร์ดผู้ดูแลระบบ</p>
+                    <p><strong>เทคโนโลยี:</strong> React, Node.js, MongoDB</p>
+                </div>
+                <div class="project-card">
+                    <h3>📊 แอปพลิเคชันบริหารโครงการ</h3>
+                    <p>เครื่องมือโดยเด็ดขาดสำหรับทีมเพื่อจัดการงาน ติดตามความคืบหน้า และสง่การทำงานร่วมกัน</p>
+                    <p><strong>เทคโนโลยี:</strong> Vue.js, Firebase, Tailwind CSS</p>
+                </div>
+                <div class="project-card">
+                    <h3>🎮 เกมเล่นในเบราว์เซอร์</h3>
+                    <p>เกมเล่นในเบราว์เซอร์ที่สนุกสนานพร้อมเอฟเฟกต์ภาพและเสียง</p>
+                    <p><strong>เทคโนโลยี:</strong> Vanilla JavaScript, Canvas API</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ติดต่อ -->
+        <section id="contact">
+            <h2>ติดต่อฉัน</h2>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 1.5rem;">
+                ฉันต้องการได้ยินจากคุณ! โปรดติดต่อฉันผ่านช่องทางใดต่อไปนี้:
+            </p>
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com" class="contact-link">📧 อีเมล</a>
+                <a href="https://github.com" target="_blank" class="contact-link">💻 GitHub</a>
+                <a href="https://linkedin.com" target="_blank" class="contact-link">🔗 LinkedIn</a>
+                <a href="https://twitter.com" target="_blank" class="contact-link">𝕏 Twitter</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 พอร์ตโฟลิโอของฉัน | สร้างด้วยสัตยาบรรม ❤️</p>
+    </footer>
+</body>
+</html>
