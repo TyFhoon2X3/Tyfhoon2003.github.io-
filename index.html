@@ -714,13 +714,6 @@
                 <h1>$ ARDEE ARWAEHAMA</h1>
                 <p>Information Technology | Computational Science</p>
             </div>
-            <div class="theme-switcher">
-                <button class="theme-btn blue" onclick="setTheme('blue')" title="Hacker"></button>
-                <button class="theme-btn ocean" onclick="setTheme('ocean')" title="Cyber"></button>
-                <button class="theme-btn sunset" onclick="setTheme('sunset')" title="Neon"></button>
-                <button class="theme-btn forest" onclick="setTheme('forest')" title="Matrix"></button>
-                <button class="theme-btn midnight" onclick="setTheme('midnight')" title="Synthwave"></button>
-            </div>
         </div>
     </header>
 
@@ -729,6 +722,7 @@
         <a href="#experience">~/experience</a>
         <a href="#education">~/education</a>
         <a href="#skills">~/skills</a>
+        <a href="#projects">~/projects</a>
         <a href="#contact">~/contact</a>
     </nav>
 
@@ -760,9 +754,11 @@
         </section>
 
         <!-- โครงการจาก GitHub -->
-        <section id="github">
+        <section id="projects">
             <h2>>>> my projects</h2>
-            <div id="projectsContainer" class="loading">loading projects...</div>
+            <div id="projectsContainer" class="projects-grid">
+                <div class="loading">Loading projects from GitHub...</div>
+            </div>
         </section>
 
         <!-- ประสบการณ์ทำงาน -->
@@ -946,19 +942,67 @@
         const savedTheme = localStorage.getItem('theme') || 'blue';
         setTheme(savedTheme);
 
-        // Hide stats section since we don't have GitHub data
+        // Fetch GitHub repositories
         document.addEventListener('DOMContentLoaded', function() {
             const statsElement = document.querySelector('.stats');
             if (statsElement) {
                 statsElement.style.display = 'none';
             }
             
-            // Hide projects section or show a message
-            const projectsContainer = document.getElementById('projectsContainer');
-            if (projectsContainer) {
-                projectsContainer.innerHTML = '<p style="color: rgba(255, 255, 255, 0.7); text-align: center;">Coming soon - Academic projects and portfolio items</p>';
-            }
+            // Fetch repositories from GitHub
+            fetchGitHubRepos();
         });
+
+        async function fetchGitHubRepos() {
+            const username = 'TyFhoon2X3';
+            const projectsContainer = document.getElementById('projectsContainer');
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&type=owner`);
+                const repos = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch repositories');
+                }
+                
+                if (repos.length === 0) {
+                    projectsContainer.innerHTML = '<p style="color: rgba(255, 255, 255, 0.7); text-align: center;">No public repositories found</p>';
+                    return;
+                }
+                
+                // Filter out forked repos and display top 6
+                const ownRepos = repos.filter(repo => !repo.fork).slice(0, 6);
+                
+                let html = '';
+                ownRepos.forEach(repo => {
+                    const language = repo.language || 'Unknown';
+                    const stars = repo.stargazers_count || 0;
+                    const description = repo.description || 'No description';
+                    
+                    html += `
+                        <div class="project-card">
+                            <h3>${repo.name}</h3>
+                            <p>${description}</p>
+                            <div class="project-meta">
+                                <span><i class="fas fa-code"></i> ${language}</span>
+                                <span><i class="fas fa-star"></i> ${stars} stars</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="${repo.html_url}" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i> View on GitHub
+                                </a>
+                                ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Visit</a>` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                projectsContainer.innerHTML = html;
+            } catch (error) {
+                console.error('Error fetching repos:', error);
+                projectsContainer.innerHTML = '<p style="color: rgba(255, 255, 255, 0.7); text-align: center;">Unable to load projects. Please try again later.</p>';
+            }
+        }
     </script>
 </body>
 </html>
